@@ -29,11 +29,20 @@ docker build -t stem-tool-sandbox:latest sandbox
 
 ## Usage
 
-**Run one repository:**
+**Recommended — run on the news-scraper fixture:**
 
 ```powershell
-stem-doc-agent run --repo fixtures/fastapi_service --run-id fastapi-demo
-stem-doc-agent eval --run artifacts/runs/fastapi-demo
+stem-doc-agent run --repo fixtures/news-scraper --run-id news-scraper-01
+stem-doc-agent eval --run artifacts/runs/news-scraper-01
+```
+
+It is the most complex fixture (7 source modules, async pipeline, optional deps, SMTP notifier) and produces the most interesting specialization.
+
+**Run any other fixture:**
+
+```powershell
+stem-doc-agent run --repo fixtures/fastapi_service --run-id fastapi-01
+stem-doc-agent eval --run artifacts/runs/fastapi-01
 ```
 
 **Run all fixtures + evaluate (benchmark):**
@@ -117,11 +126,51 @@ Required sections are read from the agent's own `doc_plan.json` when available �
 
 **LLM judge**: GPT-4.1-mini independently evaluates both docs on accuracy, completeness, maintainer usefulness, and clarity. Runs after the deterministic scorer and never influences it.
 
+## Sample results — `fixtures/news-scraper`
+
+Two representative runs on the news-scraper fixture. The agent is non-deterministic; results vary per run.
+
+### Run 08 — winner: baseline
+
+The agent produced accurate, deep component docs but skipped setup and broader project context, hurting breadth metrics. The LLM judge called it a tie on quality (8.25 / 8.25) but the deterministic scorer penalised the missing setup coverage and hallucinated a shell command.
+
+| | Baseline | Evolved |
+|---|---|---|
+| file_trace_accuracy | 0.464 | **0.714** |
+| entrypoint_coverage | **1.000** | **1.000** |
+| component_coverage | **0.750** | 0.500 |
+| setup_coverage | **1.000** | 0.333 |
+| hallucinated_command_avoidance | **1.000** | 0.500 |
+| docs_structure_completeness | **1.000** | **1.000** |
+| **score** | **84.29** | 66.79 |
+
+Rubric self-eval (agent): `passes: false` (total 0.60)  
+LLM judge: **tie** — *"baseline provides a more comprehensive overview… evolved delivers more accurate component-level detail but lacks setup context"*
+
+### Run 09 — winner: evolved ✓
+
+The agent covered setup, all entrypoints, and referenced real file paths throughout. File trace accuracy hit 1.0. Rubric self-eval also passed.
+
+| | Baseline | Evolved |
+|---|---|---|
+| file_trace_accuracy | 0.692 | **1.000** |
+| entrypoint_coverage | **1.000** | **1.000** |
+| component_coverage | 0.583 | **0.750** |
+| setup_coverage | **1.000** | **1.000** |
+| hallucinated_command_avoidance | **1.000** | 0.667 |
+| docs_structure_completeness | 0.500 | **1.000** |
+| **score** | 80.51 | **90.00** |
+
+Rubric self-eval (agent): `passes: true` (total 0.925)  
+LLM judge: **evolved** — *"more detailed, structured, and practical guidance on setup, configuration, and usage… clearer and more actionable for a new maintainer"*
+
+---
+
 ## Fixtures
 
-Three bundled repositories in `fixtures/`:
+Four bundled repositories in `fixtures/`:
 
+- `news-scraper` — async scraper with RSS/HN/Google News fetchers, scorer, GPT draft generator, email notifier *(recommended)*
 - `python_cli_tool` — Click CLI with subcommands, JSON export, tests
 - `fastapi_service` — FastAPI with routers, repositories, billing, background jobs
 - `react_component_lib` — React component library with hooks, theme, tests
-- `news-scraper` — async scraper with RSS/HN/Google News fetchers, scorer, GPT draft generator, email notifier
