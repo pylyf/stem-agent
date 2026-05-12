@@ -1,0 +1,10 @@
+[
+  {
+    "name": "register_python_tool",
+    "output": {
+      "registered": "evaluate_docs",
+      "purpose": "Evaluate generated documentation coverage and accuracy against repository facts and rubric criteria.",
+      "dependencies": []
+    }
+  }
+]

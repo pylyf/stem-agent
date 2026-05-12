@@ -1,0 +1,40 @@
+[
+  {
+    "name": "register_composite",
+    "output": {
+      "error": "Invalid or duplicate tool name: extract_docstrings_and_comments"
+    }
+  },
+  {
+    "name": "extract_docstrings_and_comments",
+    "output": "```json\n{\n  \"filename\": \"BaseFetcher.py\",\n  \"summary\": \"Abstract base class for news item fetchers, defining the 'fetch' method to asynchronously retrieve news items from a source.\"\n}\n```"
+  },
+  {
+    "name": "extract_docstrings_and_comments",
+    "output": "```json\n{\n  \"summary\": \"This Python module defines a GoogleNewsFetcher class that asynchronously fetches news items related to specified queries from Google News using the gnews library. It extracts titles, URLs, sources, summaries, and publication dates, returning a list of RawItem objects. The module includes a helper function to parse date strings into timezone-aware datetime objects.\"\n}\n```"
+  },
+  {
+    "name": "extract_docstrings_and_comments",
+    "output": "```json\n{\n  \"summary\": \"This Python module defines a HackerNewsFetcher class that asynchronously retrieves AI-related stories from the Hacker News Algolia API. It extracts relevant details like title, URL, author, points, and comment count, packaging them into RawItem instances. The module also includes a helper function to parse ISO8601 datetime strings into UTC datetime objects.\"\n}\n```"
+  },
+  {
+    "name": "extract_docstrings_and_comments",
+    "output": "```json\n{\n  \"summary\": \"This Python module defines an RssFetcher class to asynchronously fetch and parse RSS feed entries from specified URLs. It extracts key information such as URL, title, summary (cleaned from HTML), and published date converted to UTC. The module includes default RSS source tuples and utility functions to parse entry datetimes and clean HTML content from feed summaries.\"\n}\n```"
+  },
+  {
+    "name": "extract_docstrings_and_comments",
+    "output": "```json\n{\n  \"summary\": \"This module defines a DraftGenerator class for creating Czech LinkedIn posts from news items using AI. It extracts content from ScoredItem objects and generates two Czech-language post variants (educational and opinionated) from Filip, a 22-year-old AI developer focused on RAG systems, LLM integrations, and AI automation for Czech SMBs. The generation uses OpenAI's AsyncOpenAI client if API keys are configured; otherwise, it produces placeholder drafts. The module also includes helper functions to split and validate draft variants and enforces style and structure constraints defined in a detailed SYSTEM_PROMPT.\"\n}\n```"
+  },
+  {
+    "name": "extract_docstrings_and_comments",
+    "output": "```json\n{\n  \"summary\": \"This module provides the NewsDatabase class, which manages an asynchronous SQLite database for storing news items and corresponding posts drafts. It defines the database schema with tables for items and posts, and includes methods to initialize the database, check seen URLs, store scored news items, and store post drafts. The module also includes a utility function to generate a unique SHA-256 hash ID for a given URL.\"\n}\n```"
+  },
+  {
+    "name": "extract_docstrings_and_comments",
+    "output": "```json\n{\n  \"summary\": \"This Python file defines data classes representing items with associated metadata. It includes RawItem for basic item info (URL, title, source, optional summary, and publication date), ScoredItem extending RawItem with a score and matched keywords, and PostDraft linking a ScoredItem with two draft texts and optional token usage and cost.\"\n}\n```"
+  },
+  {
+    "name": "extract_docstrings_and_comments",
+    "output": "```json\n{\n  \"summary\": \"This module provides functions to build and send email reports containing daily AI-related LinkedIn post drafts. It includes utilities to create HTML and plain text email content from a list of PostDraft objects. The module also handles sending emails via SMTP with support for TLS and authentication, and includes a test email function to verify SMTP settings.\"\n}\n```"
+  }
+]

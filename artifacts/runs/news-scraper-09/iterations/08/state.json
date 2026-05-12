@@ -1,0 +1,386 @@
+{
+  "iteration": 8,
+  "observations": [
+    "We start with zero knowledge about the repository structure and contents. To create a documentation plan and repository-specific tools, we need to first gather basic information about the repository.",
+    "The repository is a Python project for an AI news scraper that generates LinkedIn draft posts.",
+    "The repository contains src/ as the main source folder with multiple components such as fetchers, config, db, generator, models, notifier.",
+    "There are important entrypoints and scripts like main.py and several test and setup scripts under scripts/ and tests/.",
+    "Setup commands are typical pip install commands and pytest for testing.",
+    "Public interfaces and classes are listed which show relevant API surfaces for the main components.",
+    "Existing documentation is minimal and limited to a pytest cache README file.",
+    "There are documentation risks including lack of maintainers' guidance on entrypoints, setup commands, and that major components require summaries.",
+    "To make a documentation plan and build repository-specific tools, next steps should include reading some key files like README or main.py to check for existing project descriptions, and files that explain setup or architecture such as pyproject.toml and src/config.py.",
+    "Additionally, extracting docstrings or comments from main modules and entrypoints will be useful to help form a documentation plan.",
+    "We should create composite tools and skills for extracting summaries and docstring data from modules, to aid documentation generation in future steps.",
+    "The main.py content reveals the primary orchestration of fetching news items, filtering unseen URLs, scoring, generating drafts, and sending emails or printing reports.",
+    "The pyproject.toml confirms dependencies and reveals some optional dev dependencies and pytest configuration.",
+    "The src/config.py provides a detailed Settings dataclass with environment-based loading and properties indicating generation and email sending readiness.",
+    "No README.md exists, so significant foundational documentation must be created from code and config information.",
+    "Docstrings exist minimally in src/__init__.py and src/publisher.py, and there are many relevant modules under src/fetchers, src/generator.py, src/models.py, src/notifier.py, and src/db.py.",
+    "Creating composite tools to extract docstrings and summarize key source modules in src/fetchers/, src/generator.py, src/db.py, src/models.py, and src/notifier.py will enable forming component summaries for documentation.",
+    "Plan to extract key functional docstrings for components, summarize setup and usage from pyproject.toml and main.py, and then draft a documentation plan covering setup, usage, component overviews, and API references.",
+    "A documentation evaluation rubric will be useful to check coverage of entrypoints, setup instructions, component explanations, and hallucination avoidance in generated docs.",
+    "All key major source modules have been summarized via extracted top-level docstrings and comments, providing clear, concise descriptions of their responsibilities.",
+    "Setup files (pyproject.toml and config.py) and entrypoint main.py have been read and analyzed, revealing detailed setup commands, dependency lists, environment variable config, and usage flow.",
+    "The existing composite tool extract_docstrings_and_comments is already registered and successfully extracts module docstrings to aid component summary generation.",
+    "The current doc_plan draft covers setup, usage, components, and API references documents, each with associated skills and tools ready for documentation generation.",
+    "Next step should be to define an evaluation Python tool named evaluate_docs to score produced docs against rubric criteria such as entrypoint coverage, setup accuracy, component coverage, and hallucination avoidance.",
+    "This evaluation tool will enable automated assessment of documentation completeness and correctness after documentation content is generated.",
+    "Skills and composite tools are sufficiently defined to proceed with generating documentation drafts in future iterations.",
+    "We do not yet execute final documentation creation; focus now is on tooling to verify documentation quality after creation.",
+    "All major repository components have been summarized with extracted docstrings and comments, providing a solid base for component documentation.",
+    "The evaluate_docs python tool is registered and ready to evaluate documentation coverage against rubric criteria of entrypoints, setup accuracy, component coverage, and hallucination avoidance.",
+    "The draft documentation plan covers four key documents: setup, usage, components, and API reference, with associated skills and tools clearly outlined.",
+    "No README exists, so the plan wisely focuses on foundational documentation for setup and usage, along with component summaries and API references from source code.",
+    "The composite tool extract_docstrings_and_comments is in place for component summary extraction and already applied to key modules.",
+    "Skills for analyzing module summaries, developing the documentation plan, and evaluating documentation quality are defined and linked appropriately.",
+    "Workflow steps are proposed to generate documentation drafts, run evaluation, then refine or finalize documentation accordingly.",
+    "The system is ready to move forward with actual documentation content generation in a subsequent evolution step, using the current plan, tools, and skills.",
+    "The repository profile and extracted file summaries confirm the primary entrypoints, major components, and setup commands.",
+    "Current composite tool 'extract_docstrings_and_comments' is suitable for extracting summaries from key source python files.",
+    "The Python evaluation tool 'evaluate_docs' is ready to score generated documentation against rubric criteria based on entrypoint coverage, setup accuracy, component coverage, and hallucination avoidance.",
+    "The documentation plan logically covers setup, usage, components, and API reference documents with associated skills and tools defined.",
+    "Next steps involve defining skills for generating content drafts per document that will utilize existing composite tools and gathered info, preparing for actual documentation generation.",
+    "No new composite or Python tools are strictly necessary before first generation since summarization and evaluation tools are ready.",
+    "Workflow should focus on generating drafts for all doc plan documents, applying evaluation, then iterating until rubric thresholds are met.",
+    "The system is ready to proceed to drafting documentation content based on the current plan, skills, and tooling.",
+    "The documentation plan is complete with four key documents covering setup, usage, components, and API reference.",
+    "Skills to generate drafts for each document are defined but none have been executed yet.",
+    "Composite extraction tool 'extract_docstrings_and_comments' is registered and assigned for component summaries extraction in the components.md document.",
+    "The Python evaluation tool 'evaluate_docs' is registered to score documentation quality after drafts are made.",
+    "No new composite or Python tooling is strictly required.",
+    "Next logical step is to define skills for generating draft documentation content for each document using the existing tools and repository knowledge, to prepare for actual draft generation in the next iterations.",
+    "Workflow should be defined to generate draft documents, evaluate them, and then iterate until passing the rubric threshold before finalizing.",
+    "All foundational knowledge about the repository, its structure, components, and existing tools is currently in place.",
+    "The documentation plan is fully defined with four main documents covering setup, usage, components, and API reference.",
+    "Skills for generating draft documents per each doc plan file are clearly defined.",
+    "The evaluate_docs python tool is implemented and registered for scoring the documentation after drafts are generated.",
+    "No additional composite or primitive tools are necessary given the current repo-specific tooling state.",
+    "The next logical step is to instruct skills for generating documentation content drafts for each planned document using the existing tools and knowledge.",
+    "A workflow is drafted to first generate drafts, then run evaluation, then iterate until passing rubric thresholds before finalizing documentation."
+  ],
+  "skills": {
+    "analyze_module_summaries": "Use extract_docstrings_and_comments on the main source modules and fetchers to gather summaries; review their outputs to understand component roles and their responsibilities in the system.",
+    "develop_doc_plan": "Combine information from pyproject.toml (for setup and dependencies), main.py (for entrypoint usage), config.py (for configuration overview), and extracted module summaries to draft a documentation plan that covers setup instructions, usage, component architecture overview, and API references.",
+    "evaluate_documentation_quality": "Use the evaluate_docs python tool to score generated documentation against rubric criteria and decide if documentation is ready to finalize or needs iteration.",
+    "generate_setup_document": "Generate a detailed setup document at docs/setup.md by describing installation commands, dependency list, and environment variable configuration using content from pyproject.toml and repo_profile setup commands.",
+    "generate_usage_document": "Generate a usage document at docs/usage.md detailing the main.py entrypoint orchestration flow and configuration Settings usage from config.py with emphasis on fetching, filtering, scoring, draft generation, and notification steps.",
+    "generate_components_document": "Generate components documentation at docs/components.md by summarizing major source modules including fetchers, generator, db, models, and notifier using outputs from extract_docstrings_and_comments composite tool.",
+    "generate_api_reference_document": "Generate an API reference document at docs/api_reference.md cataloging public interfaces, classes, and methods derived from repo_profile public_interfaces and source code signatures."
+  },
+  "composite_tools": {
+    "extract_docstrings_and_comments": {
+      "description": "Extracts the top-level docstrings and comments from Python files to summarize the file purpose.",
+      "steps": [
+        {
+          "tool": "read_file",
+          "args": {
+            "path": "{file_path}"
+          }
+        }
+      ],
+      "synthesis": "Parse the file content to extract the module-level docstring or initial comment block at the top of the file to produce a summary snippet indicating the purpose and main features of the file."
+    }
+  },
+  "python_tools": {
+    "evaluate_docs": {
+      "purpose": "Evaluate generated documentation coverage and accuracy against repository facts and rubric criteria.",
+      "dependencies": [],
+      "code": "def run(params: dict) -> dict:\n    docs = params.get('docs', {})\n    profile = params.get('profile', {})\n    rubric = params.get('rubric', {})\n\n    all_text = ' '.join(docs.values()).lower()\n\n    entrypoints = profile.get('entrypoints', [])\n    components = profile.get('components', [])\n    setup_commands = profile.get('setup_commands', [])\n\n    # Criterion: entrypoint_coverage - fraction of entrypoints mentioned in docs\n    entrypoint_hits = sum(1 for ep in entrypoints if ep.lower() in all_text)\n    entrypoint_coverage = entrypoint_hits / max(len(entrypoints), 1)\n\n    # Criterion: component_coverage - fraction of major components mentioned\n    component_hits = sum(1 for c in components if c.lower() in all_text)\n    component_coverage = component_hits / max(len(components), 1)\n\n    # Criterion: setup_accuracy - presence of all setup commands verbatim in docs\n    setup_hits = sum(1 for cmd in setup_commands if cmd.lower() in all_text)\n    setup_accuracy = setup_hits / max(len(setup_commands), 1)\n\n    # Criterion: hallucination_avoidance - simple heuristic: no phrases indicating uncertainty\n    hallucination_terms = ['maybe', 'might', 'could be', 'possibly', 'unclear', 'unknown']\n    hallucination_hits = sum(all_text.count(term) for term in hallucination_terms)\n    hallucination_avoidance = 1.0 if hallucination_hits == 0 else max(0.0, 1.0 - hallucination_hits * 0.1)\n\n    criteria = {\n        'entrypoint_coverage': entrypoint_coverage,\n        'component_coverage': component_coverage,\n        'setup_accuracy': setup_accuracy,\n        'hallucination_avoidance': hallucination_avoidance\n    }\n\n    weights = rubric.get('criteria', {})\n    total_score = 0.0\n    total_weight = 0.0\n    for k, w in weights.items():\n        score = criteria.get(k, 0.0)\n        total_score += score * w\n        total_weight += w\n    total_score = total_score / total_weight if total_weight > 0 else 0\n\n    passes = total_score >= rubric.get('threshold', 0.7)\n\n    return {\n        'criteria': criteria,\n        'total': total_score,\n        'passes': passes\n    }\n"
+    }
+  },
+  "tool_results": [
+    {
+      "name": "repo_profile",
+      "output": {
+        "repo_path": "C:\\Users\\pylyf\\Documents\\AiWorkLab\\temporary\\jetbrains-intern\\fixtures\\news-scraper",
+        "project_type": "Python project",
+        "languages": [
+          "Python"
+        ],
+        "frameworks": [],
+        "entrypoints": [
+          "main.py"
+        ],
+        "package_files": [
+          "pyproject.toml",
+          "requirements.txt"
+        ],
+        "existing_docs": [
+          ".pytest_cache/README.md"
+        ],
+        "components": [
+          "main.py",
+          "scripts/setup_db.py",
+          "scripts/test_openai_api.py",
+          "scripts/test_run.py",
+          "scripts/test_smtp.py",
+          "src/__init__.py",
+          "src/config.py",
+          "src/db.py",
+          "src/fetchers",
+          "src/generator.py",
+          "src/models.py",
+          "src/notifier.py"
+        ],
+        "setup_commands": [
+          "pip install -r requirements.txt",
+          "pip install -e .",
+          "pytest"
+        ],
+        "public_interfaces": [
+          "main.py: def _configure_stdio() -> None:",
+          "scripts/test_smtp.py: def main() -> int:",
+          "src/config.py: class Settings:",
+          "src/config.py: def _bool_env(name: str, default: bool) -> bool:",
+          "src/config.py: def can_generate(self) -> bool:",
+          "src/config.py: def can_send_email(self) -> bool:",
+          "src/config.py: def load_settings() -> Settings:",
+          "src/db.py: class NewsDatabase:",
+          "src/db.py: def __init__(self, path: Path) -> None:",
+          "src/db.py: def item_id(url: str) -> str:",
+          "src/fetchers/base.py: class BaseFetcher(ABC):",
+          "src/fetchers/googlenews.py: class GoogleNewsFetcher(BaseFetcher):",
+          "src/fetchers/googlenews.py: def __init__(self, queries: list[str] | None = None, max_results_per_query: int ",
+          "src/fetchers/googlenews.py: def _parse_datetime(value: str | None) -> datetime | None:",
+          "src/fetchers/hackernews.py: class HackerNewsFetcher(BaseFetcher):",
+          "src/fetchers/hackernews.py: def _parse_datetime(value: str | None) -> datetime | None:",
+          "src/fetchers/rss.py: class RssFetcher(BaseFetcher):",
+          "src/fetchers/rss.py: def __init__(self, source_name: str, url: str, timeout: float = 20.0) -> None:",
+          "src/fetchers/rss.py: def _clean_html(value: str) -> str:",
+          "src/fetchers/rss.py: def _parse_entry_datetime(entry: object) -> datetime | None:",
+          "src/fetchers/rss.py: def default_rss_fetchers() -> list[RssFetcher]:",
+          "src/generator.py: class DraftGenerator:",
+          "src/generator.py: def __init__(self, settings: Settings) -> None:",
+          "src/generator.py: def _generate_dry_run(self, item: ScoredItem) -> PostDraft:",
+          "src/generator.py: def _looks_complete(text: str) -> bool:",
+          "src/generator.py: def split_variants(text: str) -> tuple[str, str]:",
+          "src/generator.py: def validate_drafts(draft_a: str, draft_b: str) -> None:",
+          "src/models.py: class PostDraft:",
+          "src/models.py: class RawItem:",
+          "src/models.py: class ScoredItem(RawItem):"
+        ],
+        "documentation_risks": [
+          "Entrypoints need explicit maintainer guidance.",
+          "Setup commands should be documented exactly from package metadata.",
+          "Major components should be summarized with file traces."
+        ],
+        "file_summaries": {
+          ".pytest_cache/README.md": "# pytest cache directory # This directory contains data from the pytest's cache plugin, which provides the `--lf` and `--ff` options, as well as the `cache` fixture. **Do not** commit this to version control. See [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.",
+          "main.py": "from __future__ import annotations import asyncio from datetime import datetime, timezone import logging import sys from loguru import logger",
+          "pyproject.toml": "[project] name = \"ai-news-scraper\" version = \"0.1.0\" description = \"Daily AI news scraper that generates LinkedIn draft posts.\" requires-python = \">=3.11\" dependencies = [",
+          "requirements.txt": "aiosqlite>=0.20.0 beautifulsoup4>=4.12.0 feedparser>=6.0.11 gnews>=0.3.9 httpx>=0.27.0 loguru>=0.7.2",
+          "scripts/setup_db.py": "from __future__ import annotations import asyncio import sys from pathlib import Path sys.path.insert(0, str(Path(__file__).resolve().parents[1])) from src.config import load_settings",
+          "scripts/test_openai_api.py": "from __future__ import annotations import asyncio import sys from pathlib import Path sys.path.insert(0, str(Path(__file__).resolve().parents[1])) from openai import AsyncOpenAI",
+          "scripts/test_run.py": "from __future__ import annotations import asyncio import os import sys from pathlib import Path sys.path.insert(0, str(Path(__file__).resolve().parents[1]))",
+          "scripts/test_smtp.py": "from __future__ import annotations import sys from pathlib import Path sys.path.insert(0, str(Path(__file__).resolve().parents[1])) from src.config import load_settings from src.notifier import send_test_email",
+          "src/__init__.py": "\"\"\"AI news scraper package.\"\"\"",
+          "src/config.py": "from __future__ import annotations import os from dataclasses import dataclass from pathlib import Path from dotenv import load_dotenv def _bool_env(name: str, default: bool) -> bool:",
+          "src/db.py": "from __future__ import annotations import hashlib from datetime import datetime, timezone from pathlib import Path import aiosqlite from src.models import PostDraft, ScoredItem",
+          "src/fetchers/__init__.py": "from src.fetchers.base import BaseFetcher from src.fetchers.hackernews import HackerNewsFetcher from src.fetchers.rss import RssFetcher, default_rss_fetchers __all__ = [\"BaseFetcher\", \"HackerNewsFetcher\", \"RssFetcher\", \"default_rss_fetchers\"]",
+          "src/fetchers/base.py": "from __future__ import annotations from abc import ABC, abstractmethod from src.models import RawItem class BaseFetcher(ABC): source_name: str @abstractmethod",
+          "src/fetchers/googlenews.py": "from __future__ import annotations from datetime import datetime, timezone from email.utils import parsedate_to_datetime from loguru import logger from src.fetchers.base import BaseFetcher from src.models import RawItem",
+          "src/fetchers/hackernews.py": "from __future__ import annotations from datetime import datetime, timezone import httpx from loguru import logger from src.fetchers.base import BaseFetcher from src.models import RawItem",
+          "src/fetchers/rss.py": "from __future__ import annotations from datetime import datetime, timezone from email.utils import parsedate_to_datetime import feedparser import httpx from bs4 import BeautifulSoup",
+          "src/generator.py": "from __future__ import annotations import re from loguru import logger from openai import AsyncOpenAI from src.config import Settings from src.models import PostDraft, ScoredItem",
+          "src/models.py": "from __future__ import annotations from dataclasses import dataclass from datetime import datetime @dataclass(frozen=True) class RawItem: url: str",
+          "src/notifier.py": "from __future__ import annotations from email.message import EmailMessage from html import escape import smtplib from loguru import logger from src.config import Settings",
+          "src/publisher.py": "\"\"\"LinkedIn publishing placeholder. MVP delivery is manual copy-paste from email. LinkedIn API support belongs to Phase 3. \"\"\"",
+          "src/scorer.py": "from __future__ import annotations from collections import Counter from datetime import datetime, timedelta, timezone import re from src.models import RawItem, ScoredItem KEYWORD_WEIGHTS: dict[str, float] = {",
+          "tests/test_generator.py": "from __future__ import annotations import pytest from src.generator import split_variants, validate_drafts def test_split_variants() -> None: text = \"Variant A: First draft\\n\\nVariant B: Second draft\" draft_a, draft_b = split_variants(text)",
+          "tests/test_notifier.py": "from __future__ import annotations from src.models import PostDraft, ScoredItem from src.notifier import build_text_report def test_text_report_contains_drafts() -> None: item = ScoredItem( url=\"https://example.com\",",
+          "tests/test_scorer.py": "from __future__ import annotations from datetime import datetime, timedelta, timezone from src.models import RawItem from src.scorer import KeywordScorer, dedupe_raw_items def test_keyword_scorer_keeps_relevant_items() -> None: item = RawItem("
+        }
+      }
+    },
+    {
+      "name": "register_composite",
+      "output": {
+        "registered": "extract_docstrings_and_comments",
+        "spec": {
+          "description": "Extracts the top-level docstrings and comments from Python files to summarize the file purpose.",
+          "steps": [
+            {
+              "tool": "read_file",
+              "args": {
+                "path": "{file_path}"
+              }
+            }
+          ],
+          "synthesis": "Parse the file content to extract module docstring or initial comments at the top and prepare a summary snippet."
+        }
+      }
+    },
+    {
+      "name": "read_file",
+      "output": {
+        "error": "File does not exist in repository: README.md",
+        "args": {
+          "path": "README.md"
+        }
+      }
+    },
+    {
+      "name": "read_file",
+      "output": "from __future__ import annotations\n\nimport asyncio\nfrom datetime import datetime, timezone\nimport logging\nimport sys\n\nfrom loguru import logger\n\nfrom src.config import load_settings\nfrom src.db import NewsDatabase\nfrom src.fetchers import HackerNewsFetcher, default_rss_fetchers\nfrom src.fetchers.googlenews import GoogleNewsFetcher\nfrom src.generator import DraftGenerator\nfrom src.models import RawItem\nfrom src.notifier import build_text_report, send_email\nfrom src.scorer import KeywordScorer\n\n\nasync def fetch_all() -> list[RawItem]:\n    fetchers = [*default_rss_fetchers(), HackerNewsFetcher(), GoogleNewsFetcher()]\n    results = await asyncio.gather(*(fetcher.fetch() for fetcher in fetchers), return_exceptions=True)\n    items: list[RawItem] = []\n    for fetcher, result in zip(fetchers, results, strict=True):\n        if isinstance(result, Exception):\n            logger.warning(\"{} failed: {}\", fetcher.source_name, result)\n            continue\n        logger.info(\"{} returned {} items\", fetcher.source_name, len(result))\n        items.extend(result)\n    return items\n\n\nasync def run() -> int:\n    settings = load_settings()\n    _configure_stdio()\n    logger.remove()\n    logger.add(lambda msg: print(msg, end=\"\"), level=settings.log_level)\n    logging.getLogger(\"httpx\").setLevel(logging.WARNING)\n    logger.info(\"Starting AI news scraper at {}\", datetime.now(timezone.utc).isoformat())\n\n    db = NewsDatabase(settings.database_path)\n    await db.init()\n\n    raw_items = await fetch_all()\n    seen_urls = await db.seen_urls([item.url for item in raw_items])\n    fresh_candidates = [item for item in raw_items if item.url not in seen_urls]\n    logger.info(\"{} raw items, {} unseen candidates\", len(raw_items), len(fresh_candidates))\n\n    scorer = KeywordScorer(\n        min_score=settings.min_relevance_score,\n        max_age_hours=settings.max_item_age_hours,\n    )\n    scored_items = scorer.score_candidates(fresh_candidates, limit=max(settings.posts_per_day * 20, 100))\n    eligible_items = [\n        item for item in scored_items if item.score >= settings.min_relevance_score\n    ]\n    top_items = eligible_items[: settings.posts_per_day]\n    if len(top_items) < settings.posts_per_day:\n        high_score_count = len(top_items)\n        selected_urls = {item.url for item in top_items}\n        filler_items = [\n            item\n            for item in scored_items\n            if item.url not in selected_urls\n        ]\n        top_items.extend(filler_items[: settings.posts_per_day - len(top_items)])\n        if len(top_items) >= settings.posts_per_day:\n            logger.warning(\n                \"Filled {} posts from below MIN_RELEVANCE_SCORE={} to keep {} total posts\",\n                len(top_items) - high_score_count,\n                settings.min_relevance_score,\n                settings.posts_per_day,\n            )\n    if len(top_items) < settings.posts_per_day:\n        logger.warning(\n            \"Only {} fresh items found; requested {}\",\n            len(top_items),\n            settings.posts_per_day,\n        )\n    if not settings.dry_run:\n        await db.store_items(top_items)\n\n    if not top_items:\n        logger.info(\"No relevant fresh items found\")\n        return 0\n\n    generator = DraftGenerator(settings)\n    drafts = await generator.generate(top_items)\n    if not settings.dry_run:\n        await db.store_posts(drafts)\n\n    if settings.dry_run:\n        print(build_text_report(drafts))\n    else:\n        send_email(settings, drafts)\n    return 0\n\n\ndef _configure_stdio() -> None:\n    for stream in (sys.stdout, sys.stderr):\n        if hasattr(stream, \"reconfigure\"):\n            stream.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(asyncio.run(run()))\n"
+    },
+    {
+      "name": "read_file",
+      "output": "[project]\nname = \"ai-news-scraper\"\nversion = \"0.1.0\"\ndescription = \"Daily AI news scraper that generates LinkedIn draft posts.\"\nrequires-python = \">=3.11\"\ndependencies = [\n    \"aiosqlite>=0.20.0\",\n    \"beautifulsoup4>=4.12.0\",\n    \"feedparser>=6.0.11\",\n    \"gnews>=0.3.9\",\n    \"httpx>=0.27.0\",\n    \"loguru>=0.7.2\",\n    \"openai>=2.13.0\",\n    \"python-dotenv>=1.0.1\",\n]\n\n[project.optional-dependencies]\ndev = [\n    \"pytest>=8.3.0\",\n    \"pytest-asyncio>=0.24.0\",\n]\n\n[tool.pytest.ini_options]\nasyncio_mode = \"auto\"\ntestpaths = [\"tests\"]\n"
+    },
+    {
+      "name": "read_file",
+      "output": "from __future__ import annotations\n\nimport os\nfrom dataclasses import dataclass\nfrom pathlib import Path\n\nfrom dotenv import load_dotenv\n\n\ndef _bool_env(name: str, default: bool) -> bool:\n    raw = os.getenv(name)\n    if raw is None:\n        return default\n    return raw.strip().lower() in {\"1\", \"true\", \"yes\", \"y\", \"on\"}\n\n\n@dataclass(frozen=True)\nclass Settings:\n    openai_api_key: str | None\n    openai_model: str\n    openai_max_output_tokens: int\n    openai_reasoning_effort: str\n    smtp_host: str\n    smtp_port: int\n    smtp_user: str | None\n    smtp_password: str | None\n    email_from: str | None\n    email_to: str | None\n    database_path: Path\n    posts_per_day: int\n    min_relevance_score: float\n    max_item_age_hours: int\n    dry_run: bool\n    send_email: bool\n    log_level: str\n\n    @property\n    def can_generate(self) -> bool:\n        return bool(self.openai_api_key) and not self.dry_run\n\n    @property\n    def can_send_email(self) -> bool:\n        return (\n            self.send_email\n            and not self.dry_run\n            and bool(self.smtp_host)\n            and bool(self.smtp_user)\n            and bool(self.smtp_password)\n            and bool(self.email_to)\n        )\n\n\ndef load_settings() -> Settings:\n    load_dotenv()\n    return Settings(\n        openai_api_key=os.getenv(\"OPENAI_API_KEY\"),\n        openai_model=os.getenv(\"OPENAI_MODEL\", \"gpt-5-mini\"),\n        openai_max_output_tokens=int(os.getenv(\"OPENAI_MAX_OUTPUT_TOKENS\", \"4000\")),\n        openai_reasoning_effort=os.getenv(\"OPENAI_REASONING_EFFORT\", \"minimal\"),\n        smtp_host=os.getenv(\"SMTP_HOST\", \"smtp.gmail.com\"),\n        smtp_port=int(os.getenv(\"SMTP_PORT\", \"587\")),\n        smtp_user=os.getenv(\"SMTP_USER\"),\n        smtp_password=os.getenv(\"SMTP_PASSWORD\"),\n        email_from=os.getenv(\"EMAIL_FROM\") or os.getenv(\"SMTP_USER\"),\n        email_to=os.getenv(\"EMAIL_TO\"),\n        database_path=Path(os.getenv(\"DATABASE_PATH\", \"data/news.db\")),\n        posts_per_day=int(os.getenv(\"POSTS_PER_DAY\", \"10\")),\n        min_relevance_score=float(os.getenv(\"MIN_RELEVANCE_SCORE\", \"0.6\")),\n        max_item_age_hours=int(os.getenv(\"MAX_ITEM_AGE_HOURS\", \"36\")),\n        dry_run=_bool_env(\"DRY_RUN\", True),\n        send_email=_bool_env(\"SEND_EMAIL\", True),\n        log_level=os.getenv(\"LOG_LEVEL\", \"INFO\"),\n    )\n"
+    },
+    {
+      "name": "register_composite",
+      "output": {
+        "error": "Invalid or duplicate tool name: extract_docstrings_and_comments"
+      }
+    },
+    {
+      "name": "extract_docstrings_and_comments",
+      "output": "```json\n{\n  \"filename\": \"BaseFetcher.py\",\n  \"summary\": \"Abstract base class for news item fetchers, defining the 'fetch' method to asynchronously retrieve news items from a source.\"\n}\n```"
+    },
+    {
+      "name": "extract_docstrings_and_comments",
+      "output": "```json\n{\n  \"summary\": \"This Python module defines a GoogleNewsFetcher class that asynchronously fetches news items related to specified queries from Google News using the gnews library. It extracts titles, URLs, sources, summaries, and publication dates, returning a list of RawItem objects. The module includes a helper function to parse date strings into timezone-aware datetime objects.\"\n}\n```"
+    },
+    {
+      "name": "extract_docstrings_and_comments",
+      "output": "```json\n{\n  \"summary\": \"This Python module defines a HackerNewsFetcher class that asynchronously retrieves AI-related stories from the Hacker News Algolia API. It extracts relevant details like title, URL, author, points, and comment count, packaging them into RawItem instances. The module also includes a helper function to parse ISO8601 datetime strings into UTC datetime objects.\"\n}\n```"
+    },
+    {
+      "name": "extract_docstrings_and_comments",
+      "output": "```json\n{\n  \"summary\": \"This Python module defines an RssFetcher class to asynchronously fetch and parse RSS feed entries from specified URLs. It extracts key information such as URL, title, summary (cleaned from HTML), and published date converted to UTC. The module includes default RSS source tuples and utility functions to parse entry datetimes and clean HTML content from feed summaries.\"\n}\n```"
+    },
+    {
+      "name": "extract_docstrings_and_comments",
+      "output": "```json\n{\n  \"summary\": \"This module defines a DraftGenerator class for creating Czech LinkedIn posts from news items using AI. It extracts content from ScoredItem objects and generates two Czech-language post variants (educational and opinionated) from Filip, a 22-year-old AI developer focused on RAG systems, LLM integrations, and AI automation for Czech SMBs. The generation uses OpenAI's AsyncOpenAI client if API keys are configured; otherwise, it produces placeholder drafts. The module also includes helper functions to split and validate draft variants and enforces style and structure constraints defined in a detailed SYSTEM_PROMPT.\"\n}\n```"
+    },
+    {
+      "name": "extract_docstrings_and_comments",
+      "output": "```json\n{\n  \"summary\": \"This module provides the NewsDatabase class, which manages an asynchronous SQLite database for storing news items and corresponding posts drafts. It defines the database schema with tables for items and posts, and includes methods to initialize the database, check seen URLs, store scored news items, and store post drafts. The module also includes a utility function to generate a unique SHA-256 hash ID for a given URL.\"\n}\n```"
+    },
+    {
+      "name": "extract_docstrings_and_comments",
+      "output": "```json\n{\n  \"summary\": \"This Python file defines data classes representing items with associated metadata. It includes RawItem for basic item info (URL, title, source, optional summary, and publication date), ScoredItem extending RawItem with a score and matched keywords, and PostDraft linking a ScoredItem with two draft texts and optional token usage and cost.\"\n}\n```"
+    },
+    {
+      "name": "extract_docstrings_and_comments",
+      "output": "```json\n{\n  \"summary\": \"This module provides functions to build and send email reports containing daily AI-related LinkedIn post drafts. It includes utilities to create HTML and plain text email content from a list of PostDraft objects. The module also handles sending emails via SMTP with support for TLS and authentication, and includes a test email function to verify SMTP settings.\"\n}\n```"
+    },
+    {
+      "name": "register_python_tool",
+      "output": {
+        "registered": "evaluate_docs",
+        "purpose": "Evaluate generated documentation coverage and accuracy against repository facts and rubric criteria.",
+        "dependencies": []
+      }
+    }
+  ],
+  "workflow": [
+    "For each document in the documentation plan, run its associated generate_*_document skill to produce initial documentation drafts.",
+    "Apply the evaluate_docs python tool to score the drafted documentation against rubric criteria including entrypoint coverage, setup accuracy, component coverage, and hallucination avoidance.",
+    "If evaluation fails to meet the rubric threshold, refine and regenerate the documentation iteratively based on feedback until passing the criteria.",
+    "Once documentation drafts pass evaluation, finalize the documentation by preparing deliverable documents."
+  ],
+  "doc_plan": {
+    "documents": [
+      {
+        "path": "docs/setup.md",
+        "purpose": "Document setup commands, dependencies, and configuration environment variables to guide installing and running the project.",
+        "skills": [
+          "generate_setup_document"
+        ],
+        "tools": []
+      },
+      {
+        "path": "docs/usage.md",
+        "purpose": "Detail the main usage flow and entrypoint behavior from main.py including how data fetching, scoring, draft generation, and notification are orchestrated.",
+        "skills": [
+          "generate_usage_document"
+        ],
+        "tools": []
+      },
+      {
+        "path": "docs/components.md",
+        "purpose": "Provide summaries and explanations of major components like fetchers, database, generator, notifier, and models based on extracted module docstrings.",
+        "skills": [
+          "generate_components_document"
+        ],
+        "tools": [
+          {
+            "name": "extract_docstrings_and_comments",
+            "args": {
+              "file_path": "src/fetchers/base.py"
+            }
+          },
+          {
+            "name": "extract_docstrings_and_comments",
+            "args": {
+              "file_path": "src/fetchers/googlenews.py"
+            }
+          },
+          {
+            "name": "extract_docstrings_and_comments",
+            "args": {
+              "file_path": "src/fetchers/hackernews.py"
+            }
+          },
+          {
+            "name": "extract_docstrings_and_comments",
+            "args": {
+              "file_path": "src/fetchers/rss.py"
+            }
+          },
+          {
+            "name": "extract_docstrings_and_comments",
+            "args": {
+              "file_path": "src/generator.py"
+            }
+          },
+          {
+            "name": "extract_docstrings_and_comments",
+            "args": {
+              "file_path": "src/db.py"
+            }
+          },
+          {
+            "name": "extract_docstrings_and_comments",
+            "args": {
+              "file_path": "src/models.py"
+            }
+          },
+          {
+            "name": "extract_docstrings_and_comments",
+            "args": {
+              "file_path": "src/notifier.py"
+            }
+          }
+        ]
+      },
+      {
+        "path": "docs/api_reference.md",
+        "purpose": "Catalog public interfaces and classes with signatures and descriptions for developers to reference.",
+        "skills": [
+          "generate_api_reference_document"
+        ],
+        "tools": []
+      }
+    ]
+  },
+  "rubric": {
+    "criteria": {
+      "entrypoint_coverage": 30,
+      "setup_accuracy": 30,
+      "component_coverage": 30,
+      "hallucination_avoidance": 10
+    },
+    "threshold": 0.7
+  },
+  "docs": {},
+  "rubric_result": {},
+  "stop_reason": "Documentation plan, skills, and evaluation tooling are complete and ready to proceed with draft documentation generation.",
+  "ready": true
+}

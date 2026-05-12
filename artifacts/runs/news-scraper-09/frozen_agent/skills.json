@@ -1,0 +1,9 @@
+{
+  "analyze_module_summaries": "Use extract_docstrings_and_comments on the main source modules and fetchers to gather summaries; review their outputs to understand component roles and their responsibilities in the system.",
+  "develop_doc_plan": "Combine information from pyproject.toml (for setup and dependencies), main.py (for entrypoint usage), config.py (for configuration overview), and extracted module summaries to draft a documentation plan that covers setup instructions, usage, component architecture overview, and API references.",
+  "evaluate_documentation_quality": "Use the evaluate_docs python tool to score generated documentation against rubric criteria and decide if documentation is ready to finalize or needs iteration.",
+  "generate_setup_document": "Generate a detailed setup document at docs/setup.md by describing installation commands, dependency list, and environment variable configuration using content from pyproject.toml and repo_profile setup commands.",
+  "generate_usage_document": "Generate a usage document at docs/usage.md detailing the main.py entrypoint orchestration flow and configuration Settings usage from config.py with emphasis on fetching, filtering, scoring, draft generation, and notification steps.",
+  "generate_components_document": "Generate components documentation at docs/components.md by summarizing major source modules including fetchers, generator, db, models, and notifier using outputs from extract_docstrings_and_comments composite tool.",
+  "generate_api_reference_document": "Generate an API reference document at docs/api_reference.md cataloging public interfaces, classes, and methods derived from repo_profile public_interfaces and source code signatures."
+}

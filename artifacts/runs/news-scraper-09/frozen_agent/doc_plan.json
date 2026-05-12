@@ -1,0 +1,85 @@
+{
+  "documents": [
+    {
+      "path": "docs/setup.md",
+      "purpose": "Document setup commands, dependencies, and configuration environment variables to guide installing and running the project.",
+      "skills": [
+        "generate_setup_document"
+      ],
+      "tools": []
+    },
+    {
+      "path": "docs/usage.md",
+      "purpose": "Detail the main usage flow and entrypoint behavior from main.py including how data fetching, scoring, draft generation, and notification are orchestrated.",
+      "skills": [
+        "generate_usage_document"
+      ],
+      "tools": []
+    },
+    {
+      "path": "docs/components.md",
+      "purpose": "Provide summaries and explanations of major components like fetchers, database, generator, notifier, and models based on extracted module docstrings.",
+      "skills": [
+        "generate_components_document"
+      ],
+      "tools": [
+        {
+          "name": "extract_docstrings_and_comments",
+          "args": {
+            "file_path": "src/fetchers/base.py"
+          }
+        },
+        {
+          "name": "extract_docstrings_and_comments",
+          "args": {
+            "file_path": "src/fetchers/googlenews.py"
+          }
+        },
+        {
+          "name": "extract_docstrings_and_comments",
+          "args": {
+            "file_path": "src/fetchers/hackernews.py"
+          }
+        },
+        {
+          "name": "extract_docstrings_and_comments",
+          "args": {
+            "file_path": "src/fetchers/rss.py"
+          }
+        },
+        {
+          "name": "extract_docstrings_and_comments",
+          "args": {
+            "file_path": "src/generator.py"
+          }
+        },
+        {
+          "name": "extract_docstrings_and_comments",
+          "args": {
+            "file_path": "src/db.py"
+          }
+        },
+        {
+          "name": "extract_docstrings_and_comments",
+          "args": {
+            "file_path": "src/models.py"
+          }
+        },
+        {
+          "name": "extract_docstrings_and_comments",
+          "args": {
+            "file_path": "src/notifier.py"
+          }
+        }
+      ]
+    },
+    {
+      "path": "docs/api_reference.md",
+      "purpose": "Catalog public interfaces and classes with signatures and descriptions for developers to reference.",
+      "skills": [
+        "generate_api_reference_document"
+      ],
+      "tools": []
+    }
+  ]
+}

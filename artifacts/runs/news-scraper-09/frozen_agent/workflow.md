@@ -1,0 +1,4 @@
+- For each document in the documentation plan, run its associated generate_*_document skill to produce initial documentation drafts.
+- Apply the evaluate_docs python tool to score the drafted documentation against rubric criteria including entrypoint coverage, setup accuracy, component coverage, and hallucination avoidance.
+- If evaluation fails to meet the rubric threshold, refine and regenerate the documentation iteratively based on feedback until passing the criteria.
+- Once documentation drafts pass evaluation, finalize the documentation by preparing deliverable documents.

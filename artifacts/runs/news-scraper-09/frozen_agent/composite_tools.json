@@ -1,0 +1,14 @@
+{
+  "extract_docstrings_and_comments": {
+    "description": "Extracts the top-level docstrings and comments from Python files to summarize the file purpose.",
+    "steps": [
+      {
+        "tool": "read_file",
+        "args": {
+          "path": "{file_path}"
+        }
+      }
+    ],
+    "synthesis": "Parse the file content to extract module docstring or initial comments at the top and prepare a summary snippet."
+  }
+}
