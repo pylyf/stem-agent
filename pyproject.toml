@@ -1,0 +1,21 @@
+[project]
+name = "stem-doc-agent"
+version = "0.1.0"
+description = "A stem agent that specializes into a repository-specific documentation maintainer."
+requires-python = ">=3.10"
+dependencies = [
+  "openai>=1.0.0",
+  "langchain>=0.3",
+  "langchain-openai>=0.2",
+  "langgraph>=0.2",
+  "pydantic>=2"
+]
+
+[project.scripts]
+stem-doc-agent = "stem_doc_agent.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

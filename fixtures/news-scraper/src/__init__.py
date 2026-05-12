@@ -1,0 +1,2 @@
+"""AI news scraper package."""
+

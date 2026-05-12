@@ -1,0 +1,7 @@
+[project]
+name = "data-tidy"
+version = "0.1.0"
+dependencies = ["click>=8.0"]
+
+[project.scripts]
+data-tidy = "src.cli:main"

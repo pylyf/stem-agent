@@ -1,0 +1,25 @@
+[project]
+name = "ai-news-scraper"
+version = "0.1.0"
+description = "Daily AI news scraper that generates LinkedIn draft posts."
+requires-python = ">=3.11"
+dependencies = [
+    "aiosqlite>=0.20.0",
+    "beautifulsoup4>=4.12.0",
+    "feedparser>=6.0.11",
+    "gnews>=0.3.9",
+    "httpx>=0.27.0",
+    "loguru>=0.7.2",
+    "openai>=2.13.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
